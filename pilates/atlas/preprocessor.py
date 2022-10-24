@@ -73,7 +73,11 @@ def prepare_atlas_inputs(settings, year, warm_start=False):
                 # prepare jobs atlas input
                 jobs = data['/{}/jobs'.format(year)]
                 jobs.to_csv('{}/jobs.csv'.format(atlas_input_path))
-
+                
+                # prepare grave atlas input
+                grave = data['/{}/grave'.format(year)]
+                grave.to_csv('{}/grave.csv'.format(atlas_input_path))
+                
                 logger.info('Preparing ATLAS Year {} Input from Urbansim Output'.format(year))
 
             except: 
@@ -101,6 +105,10 @@ def prepare_atlas_inputs(settings, year, warm_start=False):
                 jobs = data['/jobs']
                 jobs.to_csv('{}/jobs.csv'.format(atlas_input_path))
 
+                # prepare grave atlas input
+                grave = data['/grave']
+                grave.to_csv('{}/grave.csv'.format(atlas_input_path))
+                
                 logger.info('Preparing ATLAS Year {} Input from Urbansim Output'.format(year))
                 
             except: 
